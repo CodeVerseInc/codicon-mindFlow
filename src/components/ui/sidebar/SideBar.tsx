@@ -5,8 +5,11 @@ import {
 	IconBooks,
 	IconFolder,
 	IconHome,
+	IconLogout,
 	IconMenu2,
+	IconMoon,
 	IconPlant2,
+	IconUser,
 	IconUsers,
 	icons
 } from '@tabler/icons-react'
@@ -77,7 +80,7 @@ export const SideBar = () => {
 				className={`fixed top-0 left-0 z-40 w-80 h-screen pt-20 transition-transform ${
 					isOpen ? 'translate-x-0' : '-translate-x-full'
 				} bg-white sm:translate-x-0 `}>
-				<div className='mt-12'>
+				<div className='mt-32 md:mt-12'>
 					<div className='flex flex-col gap-4 md:flex-row items-center justify-between px-5'>
 						{/* Image Profile */}
 						<div>
@@ -122,6 +125,19 @@ export const SideBar = () => {
 							))}
 						</ul>
 					</div>
+				</div>
+				{/* Bar bottom */}
+				<div className='h-16 bg-gradient-to-b from-tom-thumb-500 to-tom-thumb-600 absolute bottom-0 w-full flex items-center justify-center gap-6'>
+					<Link href='/'>
+						<IconLogout stroke={2} className='text-white cursor-pointer' />
+					</Link>
+					<Link href='/'>
+						{' '}
+						<IconUser stroke={2} className='text-white cursor-pointer' />
+					</Link>
+					<Link href='/'>
+						<IconMoon stroke={2} className='text-white cursor-pointer' />
+					</Link>
 				</div>
 			</aside>
 			{isOpen && (
