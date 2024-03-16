@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { SideBar } from '@/components'
+import { SideBarConditional } from '@/components'
 // Provider whith context of session
 import { Session } from '@/context/SessionProvider'
 
@@ -23,8 +23,9 @@ export default function RootLayout({
 	return (
 		<html lang='es'>
 			<body className={`${inter.className} bg-bg-gray h-screen`}>
-				<SideBar />
-				{children}
+				{/* A component with conditional logic is used to prevent the entire app from using "use client" */}
+				<SideBarConditional />
+				<Session>{children}</Session>
 			</body>
 		</html>
 	)
