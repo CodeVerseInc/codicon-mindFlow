@@ -10,6 +10,13 @@ const config: Config = {
 		extend: {
 			colors: {
 				'bg-gray': '#f2f2f2', // Brackground page
+				'text-logo': '#509755',
+				'color-tex-pr': '#8591A4',
+				'color-text-name-profile': '#73B577',
+				'color-box': '#73B577',
+				'color-box-secundary': '#509755',
+				'color-separator': '#AEAEAE',
+				'color-icon': '#5F5F5F',
 				'tom-thumb': {
 					'50': '#f5f9f4', // Lightest - used for backgrounds, borders etc.
 					'100': '#e5f3e6', // Lighter
@@ -26,7 +33,7 @@ const config: Config = {
 			}
 		}
 	},
-	plugins: []
+	plugins: [require('flowbite/plugin')]
 }
 
 export default config

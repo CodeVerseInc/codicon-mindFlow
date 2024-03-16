@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { SideBar } from '@/components'
 // Provider whith context of session
 import { Session } from '@/context/SessionProvider'
 
@@ -22,7 +23,8 @@ export default function RootLayout({
 	return (
 		<html lang='es'>
 			<body className={`${inter.className} bg-bg-gray h-screen`}>
-				<Session>{children}</Session>
+				<SideBar />
+				{children}
 			</body>
 		</html>
 	)
