@@ -1,7 +1,7 @@
 export default function Home() {
 	return (
-		<main className='flex min-h-screen flex-col items-center justify-between p-24'>
-			<h1>Y puro modo guerra</h1>
+		<main className='bg-bg-gray h-screen'>
+			<h1 className='text-tom-thumb-500'>Y PURO MODO GUERRA MIS COMPAS</h1>
 		</main>
 	)
 }
