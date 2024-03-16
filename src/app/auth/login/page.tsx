@@ -32,7 +32,7 @@ function Login() {
 						<Link href='signin'>
 							Aun no tienes cuenta?{' '}
 							<span className='text-tom-thumb-950 font-semibold '>
-								Resgistrarme
+								Registrarme
 							</span>
 						</Link>
 					</div>
