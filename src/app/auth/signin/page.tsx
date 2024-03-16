@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 function SignIn() {
 	return (
-		<section className='flex justify-center items-center mt-10 '>
+		<section className='flex justify-center items-center [grid-area:main] mt-8'>
 			<div className='bg-white p-10 flex flex-col-reverse  md:flex-row md:justify-between md:w-[1200px] rounded-lg '>
 				<article className='rounded-lg w-full md:w-[480px] '>
 					<picture>

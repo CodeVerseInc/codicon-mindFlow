@@ -4,6 +4,21 @@
 @import 'tailwindcss/utilities';
 @import '@fontsource/poppins';
 
+#app {
+	display: grid;
+	grid-template-areas: 'aside main main';
+	grid-template-columns: 320px 1fr;
+	grid-template-rows: 1fr auto;
+}
+
+@media (max-width: 600px) {
+	#app {
+		grid-template-areas: 'aside' 'main';
+		grid-template-columns: 1fr;
+		grid-template-rows: auto 1fr;
+	}
+}
+
 body {
 	font-family: 'Poppins', sans-serif;
 }

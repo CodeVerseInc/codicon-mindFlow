@@ -1,9 +1,3 @@
-import Link from 'next/link'
-
 export default function Home() {
-	return (
-		<main className=''>
-			<h1 className='text-tom-thumb-500'>Y PURO MODO GUERRA MIS COMPAS</h1>
-		</main>
-	)
+	return <h1 className='text-tom-thumb-500 bg-black '>Home</h1>
 }

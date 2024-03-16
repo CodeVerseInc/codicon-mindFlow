@@ -18,23 +18,28 @@ import { signOut, useSession } from 'next-auth/react'
 const ROUTES = [
 	{
 		name: 'Inicio',
-		icon: <IconHome stroke={2} className='text-color-icon' />
+		icon: <IconHome stroke={2} className='text-color-icon' />,
+		route: '/'
 	},
 	{
 		name: 'Meditacion',
-		icon: <IconPlant2 stroke={2} className='text-color-icon' />
+		icon: <IconPlant2 stroke={2} className='text-color-icon' />,
+		route: '../meditation'
 	},
 	{
 		name: 'Comunidad',
-		icon: <IconUsers stroke={2} className='text-color-icon' />
+		icon: <IconUsers stroke={2} className='text-color-icon' />,
+		route: '../community'
 	},
 	{
 		name: 'Recursos',
-		icon: <IconFolder stroke={2} className='text-color-icon' />
+		icon: <IconFolder stroke={2} className='text-color-icon' />,
+		route: '../recurses'
 	},
 	{
 		name: 'Libreria',
-		icon: <IconBooks stroke={2} className='text-color-icon' />
+		icon: <IconBooks stroke={2} className='text-color-icon' />,
+		route: '../library'
 	}
 ]
 
@@ -52,7 +57,7 @@ export const SideBar = () => {
 
 	return (
 		<>
-			<nav className='fixed top-0 z-50 w-full md:w-80 bg-white shadow-lg md:shadow-none'>
+			<nav className='fixed top-0 z-50 w-full md:w-80 bg-white shadow-lg md:shadow-none  '>
 				<div className='px-3 py-3 lg:px-5 lg:pl-3'>
 					<div className='flex items-center justify-between'>
 						<div className='flex items-center justify-start rtl:justify-end'>
@@ -78,7 +83,7 @@ export const SideBar = () => {
 			</nav>
 
 			<aside
-				className={`fixed top-0 left-0 z-40 w-80 h-screen pt-20 transition-transform ${
+				className={`[grid-area:aside] fixed top-0 left-0 z-40 w-80 h-screen pt-20 transition-transform ${
 					isOpen ? 'translate-x-0' : '-translate-x-full'
 				} bg-white sm:translate-x-0 `}>
 				<div className='mt-32 md:mt-12'>
@@ -127,12 +132,12 @@ export const SideBar = () => {
 					{/*  Routes App */}
 					<div className='px-10'>
 						<ul className=''>
-							{ROUTES.map((route, index) => (
+							{ROUTES.map((route) => (
 								<li
-									key={index}
+									key={route.name}
 									className='flex items-center justify-start gap-6 mb-5'>
 									{route.icon}
-									<Link href={route.name.toLowerCase()} className='font-medium'>
+									<Link href={route.route} className='font-medium'>
 										{route.name}
 									</Link>
 								</li>
