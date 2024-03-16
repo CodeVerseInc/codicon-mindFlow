@@ -1,8 +1,39 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
-import { IconMenu2 } from '@tabler/icons-react'
+import {
+	IconBooks,
+	IconFolder,
+	IconHome,
+	IconMenu2,
+	IconPlant2,
+	IconUsers,
+	icons
+} from '@tabler/icons-react'
 import Link from 'next/link'
+
+const ROUTES = [
+	{
+		name: 'Inicio',
+		icon: <IconHome stroke={2} className='text-color-icon' />
+	},
+	{
+		name: 'Meditacion',
+		icon: <IconPlant2 stroke={2} className='text-color-icon' />
+	},
+	{
+		name: 'Comunidad',
+		icon: <IconUsers stroke={2} className='text-color-icon' />
+	},
+	{
+		name: 'Recursos',
+		icon: <IconFolder stroke={2} className='text-color-icon' />
+	},
+	{
+		name: 'Libreria',
+		icon: <IconBooks stroke={2} className='text-color-icon' />
+	}
+]
 
 export const SideBar = () => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -47,8 +78,19 @@ export const SideBar = () => {
 				className={`fixed top-0 left-0 z-40 w-72 h-screen pt-20 transition-transform ${
 					isOpen ? 'translate-x-0' : '-translate-x-full'
 				} bg-white sm:translate-x-0 `}>
-				<div className='mt-10'>
-					<h1>Hola</h1>
+				<div className='mt-10 p-10'>
+					<ul className=''>
+						{ROUTES.map((route, index) => (
+							<li
+								key={index}
+								className='flex items-center justify-start gap-6 mb-5'>
+								{route.icon}
+								<Link href={route.name.toLowerCase()} className='font-medium'>
+									{route.name}
+								</Link>
+							</li>
+						))}
+					</ul>
 				</div>
 			</aside>
 			{isOpen && (
