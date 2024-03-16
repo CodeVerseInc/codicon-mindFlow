@@ -5,8 +5,8 @@ import Link from 'next/link'
 
 function Login() {
 	return (
-		<section className='flex justify-center items-center mt-10 '>
-			<div className='bg-white p-10 flex flex-col-reverse  md:flex-row md:justify-between md:w-[1200px] rounded-lg '>
+		<section className='flex justify-center items-center [grid-area:main] '>
+			<div className='bg-white p-10 flex flex-col-reverse  md:flex-row md:justify-between md:w-[1200px]  rounded-lg '>
 				<article className='rounded-lg w-full md:w-[480px] '>
 					<picture>
 						<img
