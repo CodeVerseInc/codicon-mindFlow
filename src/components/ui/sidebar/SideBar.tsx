@@ -1,4 +1,16 @@
+import { IconHome } from '@tabler/icons-react'
 import Image from 'next/image'
+
+const rutes = [
+  {
+    name: 'Inicio',
+    icon: <IconHome stroke={2} className='text-color-icon' />,
+  },
+]
+
+// Hay que hacer una clase active se hace haciendo un estado setIsActive isActive y la condicion sera
+// isActive? '(estilos al momento de clickear)'
+// Usando arreglo rutes hacer un map que cada que hagan clic en un item del map, se ponga isActive para que active los estilos
 
 export const SideBar = () => {
   return (
@@ -30,6 +42,10 @@ export const SideBar = () => {
         </div>
         <div>
           <ul>
+            <li className=' font-semibold flex items-center gap-2 text-lg'>
+              <span>Inicio</span>
+              <IconHome stroke={2} className='text-color-icon' />
+            </li>
             <li></li>
           </ul>
         </div>
