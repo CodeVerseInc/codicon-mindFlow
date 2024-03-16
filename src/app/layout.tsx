@@ -23,9 +23,11 @@ export default function RootLayout({
 	return (
 		<html lang='es'>
 			<body className={`${inter.className} bg-bg-gray h-screen`}>
-				{/* A component with conditional logic is used to prevent the entire app from using "use client" */}
-				<SideBarConditional />
-				<Session>{children}</Session>
+				<Session>
+					{/* A component with conditional logic is used to prevent the entire app from using "use client" */}
+					<SideBarConditional />
+					{children}
+				</Session>
 			</body>
 		</html>
 	)
