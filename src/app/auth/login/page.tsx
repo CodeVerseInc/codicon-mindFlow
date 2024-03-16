@@ -1,11 +1,11 @@
 'use client'
-import { useSession, signIn } from 'next-auth/react'
 import { LoginSignInGoogle, FormLogin } from '@/components'
+import { IconCornerUpLeft } from '@tabler/icons-react'
 import Link from 'next/link'
 
 function Login() {
 	return (
-		<section className='flex justify-center items-center '>
+		<section className='flex justify-center items-center mt-10 '>
 			<div className='bg-white p-10 flex flex-col-reverse  md:flex-row md:justify-between md:w-[1200px] rounded-lg '>
 				<article className='rounded-lg w-full md:w-[480px] '>
 					<picture>
@@ -16,12 +16,17 @@ function Login() {
 							height={120}
 						/>
 					</picture>
-					<h2 className='text-3xl'>Iniciar sesion</h2>
+
+					<div className='flex items-center gap-x-5'>
+						<h2 className='text-3xl'>Iniciar sesion</h2>{' '}
+						<Link href='/'>
+							<IconCornerUpLeft stroke={2} className='block' />
+						</Link>
+					</div>
+
 					{/* Form for login our db */}
 					<FormLogin />
-
 					{/* Login with Google */}
-
 					<LoginSignInGoogle>Iniciar sesion con Google</LoginSignInGoogle>
 					<div className='text-center mt-10'>
 						<Link href='/singup'>
