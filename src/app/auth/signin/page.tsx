@@ -1,9 +1,9 @@
 'use client'
-import { LoginSignInGoogle, FormLogin } from '@/components'
+import { LoginSignInGoogle, FormSignin } from '@/components'
 import { IconCornerUpLeft } from '@tabler/icons-react'
 import Link from 'next/link'
 
-function Login() {
+function SignIn() {
 	return (
 		<section className='flex justify-center items-center mt-10 '>
 			<div className='bg-white p-10 flex flex-col-reverse  md:flex-row md:justify-between md:w-[1200px] rounded-lg '>
@@ -18,21 +18,21 @@ function Login() {
 					</picture>
 
 					<div className='flex items-center gap-x-5'>
-						<h2 className='text-3xl'>Iniciar sesion</h2>{' '}
+						<h2 className='text-3xl'>Registrarse</h2>{' '}
 						<Link href='/'>
 							<IconCornerUpLeft stroke={2} className='block' />
 						</Link>
 					</div>
 
 					{/* Form for login our db */}
-					<FormLogin />
+					<FormSignin />
 					{/* Login with Google */}
 					<LoginSignInGoogle>Iniciar sesion con Google</LoginSignInGoogle>
 					<div className='text-center mt-10'>
-						<Link href='signin'>
-							Aun no tienes cuenta?{' '}
+						<Link href='login'>
+							Ya tienes cuenta?{' '}
 							<span className='text-tom-thumb-950 font-semibold '>
-								Resgistrarme
+								Iniciar sesión
 							</span>
 						</Link>
 					</div>
@@ -54,4 +54,4 @@ function Login() {
 	)
 }
 
-export default Login
+export default SignIn
