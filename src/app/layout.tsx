@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { SideBarConditional } from '@/components'
 // Provider whith context of session
 import { Session } from '@/context/SessionProvider'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	title: 'Mind Flow',
@@ -22,7 +19,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='es'>
-			<body className={`${inter.className} bg-bg-gray h-screen`}>
+			<body className={`bg-bg-gray h-screen`}>
 				<Session>
 					{/* A component with conditional logic is used to prevent the entire app from using "use client" */}
 					<SideBarConditional />
