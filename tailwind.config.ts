@@ -1,32 +1,33 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-	content: [
-		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
-		'./src/app/**/*.{js,ts,jsx,tsx,mdx}'
-	],
-	theme: {
-		extend: {
-			colors: {
-				'bg-gray': '#f2f2f2', // Brackground page
-				'tom-thumb': {
-					'50': '#f5f9f4', // Lightest - used for backgrounds, borders etc.
-					'100': '#e5f3e6', // Lighter
-					'200': '#cce6cd', // Light
-					'300': '#a3d2a6', // Light-Medium
-					'400': '#73b577', // Medium
-					'500': '#509755', // Medium-Dark - good for readable text
-					'600': '#3d7c41', // Dark
-					'700': '#336237', // Darker
-					'800': '#305633', // Darkest - used for text or backgrounds
-					'900': '#264129', // Extra Dark
-					'950': '#102312' // Extra Dark - used for text or backgrounds
-				}
-			}
-		}
-	},
-	plugins: []
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'bg-gray': '#f2f2f2', // Brackground page
+        'text-logo': '#509755',
+        'tom-thumb': {
+          '50': '#f5f9f4', // Lightest - used for backgrounds, borders etc.
+          '100': '#e5f3e6', // Lighter
+          '200': '#cce6cd', // Light
+          '300': '#a3d2a6', // Light-Medium
+          '400': '#73b577', // Medium
+          '500': '#509755', // Medium-Dark - good for readable text
+          '600': '#3d7c41', // Dark
+          '700': '#336237', // Darker
+          '800': '#305633', // Darkest - used for text or backgrounds
+          '900': '#264129', // Extra Dark
+          '950': '#102312', // Extra Dark - used for text or backgrounds
+        },
+      },
+    },
+  },
+  plugins: [],
 }
 
 export default config
