@@ -48,7 +48,7 @@ export const SideBar = () => {
 
 	return (
 		<>
-			<nav className='fixed top-0 z-50 w-full md:w-72 bg-white shadow-lg md:shadow-none'>
+			<nav className='fixed top-0 z-50 w-full md:w-80 bg-white shadow-lg md:shadow-none'>
 				<div className='px-3 py-3 lg:px-5 lg:pl-3'>
 					<div className='flex items-center justify-between'>
 						<div className='flex items-center justify-start rtl:justify-end'>
@@ -60,13 +60,12 @@ export const SideBar = () => {
 							<Link href='/' className='flex ms-2 md:me-24'>
 								<Image
 									src='https://res.cloudinary.com/dlklqucye/image/upload/v1710562810/mindflow-logo.webp'
-									className=''
-									alt='MindFlow'
-									width={70}
-									height={70}
+									alt='Logo Mindflow'
+									height={100}
+									width={100}
 								/>
-								<span className='self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-tom-thumb-500'>
-									Mind Flow
+								<span className='self-center text-xl font-bold sm:text-2xl whitespace-nowrap text-tom-thumb-500'>
+									MINDFLOW
 								</span>
 							</Link>
 						</div>
@@ -75,22 +74,54 @@ export const SideBar = () => {
 			</nav>
 
 			<aside
-				className={`fixed top-0 left-0 z-40 w-72 h-screen pt-20 transition-transform ${
+				className={`fixed top-0 left-0 z-40 w-80 h-screen pt-20 transition-transform ${
 					isOpen ? 'translate-x-0' : '-translate-x-full'
 				} bg-white sm:translate-x-0 `}>
-				<div className='mt-10 p-10'>
-					<ul className=''>
-						{ROUTES.map((route, index) => (
-							<li
-								key={index}
-								className='flex items-center justify-start gap-6 mb-5'>
-								{route.icon}
-								<Link href={route.name.toLowerCase()} className='font-medium'>
-									{route.name}
-								</Link>
-							</li>
-						))}
-					</ul>
+				<div className='mt-12'>
+					<div className='flex flex-col gap-4 md:flex-row items-center justify-between px-5'>
+						{/* Image Profile */}
+						<div>
+							<Image
+								src='https://res.cloudinary.com/dlklqucye/image/upload/v1710562891/img-login.webp'
+								alt='Logo Mindflow'
+								className='rounded-full'
+								height={60}
+								width={60}
+							/>
+						</div>
+						{/* Data user */}
+						<div>
+							<span className='text-color-tex-pr text-xs'>
+								¡Qué bueno verte!
+							</span>
+							<p className='font-semibold text-color-text-name-profile text-sm md:text-lg'>
+								Mike Rooss
+							</p>
+						</div>
+						<div>
+							<span className='bg-gradient-to-r from-color-box to-color-box-secundary p-2 font-semibold text-white rounded-md'>
+								Helpful
+							</span>
+						</div>
+					</div>
+
+					<hr className=' w-60 h-1 mx-auto my-4 bg-color-separator border-0 rounded md:my-10 px-10' />
+
+					{/*  Routes App */}
+					<div className='px-10'>
+						<ul className=''>
+							{ROUTES.map((route, index) => (
+								<li
+									key={index}
+									className='flex items-center justify-start gap-6 mb-5'>
+									{route.icon}
+									<Link href={route.name.toLowerCase()} className='font-medium'>
+										{route.name}
+									</Link>
+								</li>
+							))}
+						</ul>
+					</div>
 				</div>
 			</aside>
 			{isOpen && (
