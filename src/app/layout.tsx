@@ -19,13 +19,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='es'>
-			<body
-				className={`bg-bg-gray h-screen dark:bg-gradient-to-t to-bg-green-dark from-bg-dark via-bg-dark  dark:text-white bg-no-repeat bg-center bg-contain `}>
+			<body className={`dark:text-white`}>
 				<Session>
 					<div id='app' className='h-screen relative'>
 						{/* A component with conditional logic is used to prevent the entire app from using "use client" */}
 						<SideBar />
-						<main className='[grid-area:main] h-screen mt-32 md:mt-0'>
+						<main className='[grid-area:main] h-screen mt-32 md:mt-0 bg-bg-gray dark:bg-gradient-to-l from-bg-dark via-stone-900 to-bg-dark bg-cover '>
 							{children}
 						</main>
 					</div>
