@@ -1,26 +1,22 @@
 import { useState, useEffect } from 'react'
 
-type Mood = 'all' | 'sleep' | 'relax' | 'happy' | 'tired'
-
 interface Timer {
   min: number
   sec: number
 }
 
 const useTimer = (
-  mood: Mood
+  mood: string
 ): {
   timer: Timer
   isRunning: boolean
   startTimer: () => void
   stopTimer: () => void
   resetTimer: () => void
-  selectMood: (mood: Mood) => void
 } => {
   const [timer, setTimer] = useState<Timer>({ min: 0, sec: 0 })
   const [isRunning, setIsRunning] = useState<boolean>(false)
   const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null)
-  const [mymood, setMymood] = useState('')
 
   useEffect(() => {
     const assignTimer = () => {
@@ -87,12 +83,7 @@ const useTimer = (
     setTimer({ min: 0, sec: 0 })
   }
 
-  const selectMood = (mood: string): void => {
-    setMymood(mood)
-    console.log(mood)
-  }
-
-  return { timer, isRunning, startTimer, stopTimer, resetTimer, selectMood }
+  return { timer, isRunning, startTimer, stopTimer, resetTimer }
 }
 
 export default useTimer
