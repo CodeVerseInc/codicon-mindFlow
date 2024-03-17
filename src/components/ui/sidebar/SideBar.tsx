@@ -83,7 +83,7 @@ export const SideBar = () => {
 			</nav>
 
 			<aside
-				className={`[grid-area:aside] fixed top-0 left-0 z-40 w-80 h-screen pt-20 transition-transform ${
+				className={`[grid-area:aside] fixed top-0 left-0 z-40 w-80 h-screen pt-5 2xl:pt-20 transition-transform ${
 					isOpen ? 'translate-x-0' : '-translate-x-full'
 				} bg-white sm:translate-x-0 `}>
 				<div className='mt-32 md:mt-12'>
