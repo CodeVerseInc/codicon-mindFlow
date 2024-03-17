@@ -89,6 +89,7 @@ const useTimer = (
 
   const selectMood = (mood: string): void => {
     setMymood(mood)
+    console.log(mood)
   }
 
   return { timer, isRunning, startTimer, stopTimer, resetTimer, selectMood }
