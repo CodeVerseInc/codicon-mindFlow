@@ -6,6 +6,7 @@ const config: Config = {
 		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}'
 	],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
@@ -15,9 +16,14 @@ const config: Config = {
 				'color-text-name-profile': '#73B577',
 				'color-box': '#73B577',
 				'color-box-secundary': '#509755',
+				'color-bg-circle': '#EDEBEB',
 				'color-separator': '#AEAEAE',
+				'color-icon-meditation': '#AEAEAE',
 				'color-icon': '#5F5F5F',
 				'gray-button': '#D9D9D9',
+				'bg-dark': '#121212',
+				'bg-green-dark': '#325E36',
+				'bg-card-dark': '#595959',
 				'tom-thumb': {
 					'50': '#f5f9f4', // Lightest - used for backgrounds, borders etc.
 					'100': '#e5f3e6', // Lighter

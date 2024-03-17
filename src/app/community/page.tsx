@@ -24,7 +24,7 @@ async function Community() {
 					title='John Doe'
 					body='Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui...'
 				/>
-				{/* {posts.map((post: any) => {
+				{posts.map((post: any) => {
 					// Find user profile associated with the post
 					const user = userProfile.find((user: any) => user.id === post.userId)
 
@@ -42,7 +42,7 @@ async function Community() {
 							} // Use user's image if available, otherwise use a default image
 						/>
 					)
-				})} */}
+				})}
 			</section>
 			<ButtonAddPost />
 		</article>

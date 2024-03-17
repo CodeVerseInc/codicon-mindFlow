@@ -8,13 +8,15 @@ interface LoginSignInGoogleProps {
 export const LoginSignInGoogle: FC<LoginSignInGoogleProps> = ({ children }) => {
 	// Function to login with Google
 	const loginWithGoogle = () => {
-		signIn('google', { callbackUrl: 'http://localhost:3000/' })
+		signIn('google', {
+			callbackUrl: 'https://mindflow-nine.vercel.app/auth/login'
+		})
 	}
 
 	return (
 		<button
 			onClick={loginWithGoogle}
-			className='flex gap-x-2 h-14 items-center shadow-md w-full justify-center rounded-lg'>
+			className='flex gap-x-2 h-14 items-center shadow-md w-full justify-center rounded-lg dark:bg-white dark:text-black'>
 			<svg
 				width='21'
 				height='22'

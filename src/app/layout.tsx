@@ -5,31 +5,31 @@ import { SideBar } from '@/components'
 import { Session } from '@/context/SessionProvider'
 
 export const metadata: Metadata = {
-	title: 'Mind Flow',
-	description: 'Proyecto para la Codicon',
-	icons: {
-		icon: '/assets/img/logo.png' // /public path
-	}
+  title: 'Mind Flow',
+  description: 'Proyecto para la Codicon',
+  icons: {
+    icon: '/assets/img/logo.png', // /public path
+  },
 }
 
 export default function RootLayout({
-	children
+  children,
 }: Readonly<{
-	children: React.ReactNode
+  children: React.ReactNode
 }>) {
-	return (
-		<html lang='es'>
-			<body className={`bg-bg-gray h-screen`}>
-				<Session>
-					<div id='app' className='h-screen relative'>
-						{/* A component with conditional logic is used to prevent the entire app from using "use client" */}
-						<SideBar />
-						<main className='[grid-area:main] h-screen mt-32 md:mt-0'>
-							{children}
-						</main>
-					</div>
-				</Session>
-			</body>
-		</html>
-	)
+  return (
+    <html lang='es'>
+      <body className={`dark:text-white`}>
+        <Session>
+          <div id='app' className='h-screen relative'>
+            {/* A component with conditional logic is used to prevent the entire app from using "use client" */}
+            <SideBar />
+            <main className='[grid-area:main] md:h-auto mt-[124px] md:mt-0 bg-bg-gray dark:bg-gradient-to-l from-bg-dark via-stone-900 to-bg-dark  bg-cover '>
+              {children}
+            </main>
+          </div>
+        </Session>
+      </body>
+    </html>
+  )
 }
