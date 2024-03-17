@@ -30,6 +30,7 @@ export const FormAddPost = () => {
 				{(formikProps) => (
 					<Form>
 						<Input
+							type='string'
 							name='title'
 							label='Escribe un título'
 							placeholder='100 días de NoFap'
