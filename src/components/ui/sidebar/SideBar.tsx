@@ -118,8 +118,14 @@ export const SideBar = () => {
 							</div>
 						</div>
 					) : (
-						<div className='text-center'>
-							<span>Para disfrutar de mas </span>
+						<div className='flex justify-center items-center flex-col gap-5 text-center'>
+							<Image
+								src='https://res.cloudinary.com/dlklqucye/image/upload/v1710562891/img-login.webp'
+								alt='Logo Mindflow'
+								className='rounded-full'
+								height={60}
+								width={60}
+							/>
 							<Link
 								href='/auth/login'
 								className='text-center text-tom-thumb-500 font-semibold'>
@@ -127,7 +133,7 @@ export const SideBar = () => {
 							</Link>
 						</div>
 					)}
-					<hr className=' w-60 h-1 mx-auto my-4 bg-color-separator border-0 rounded md:my-10 px-10' />
+					<hr className=' w-60 h-1 mx-auto my-4 bg-color-separator border-0 rounded px-10' />
 
 					{/*  Routes App */}
 					<div className='px-10'>
