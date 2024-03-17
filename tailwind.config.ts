@@ -21,6 +21,7 @@ const config: Config = {
 				'gray-button': '#D9D9D9',
 				'bg-dark': '#121212',
 				'bg-green-dark': '#325E36',
+				'bg-card-dark': '#595959',
 				'tom-thumb': {
 					'50': '#f5f9f4', // Lightest - used for backgrounds, borders etc.
 					'100': '#e5f3e6', // Lighter

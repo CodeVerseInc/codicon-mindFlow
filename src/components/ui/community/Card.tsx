@@ -8,7 +8,7 @@ interface CardProps {
 
 export const Card = ({ profilePhoto, title, body }: CardProps) => {
 	return (
-		<div className='w-60 h-52 bg-white rounded-lg p-5 flex flex-col justify-between  '>
+		<div className='w-60 h-52 bg-white dark:bg-bg-card-dark dark:bg-opacity-30 rounded-lg p-5 flex flex-col justify-between  '>
 			<div className='flex items-center jsu gap-x-5'>
 				<Image
 					src={profilePhoto}
@@ -22,7 +22,7 @@ export const Card = ({ profilePhoto, title, body }: CardProps) => {
 			<p className='text-xs'>{body}</p>
 			<a
 				href='/'
-				className=' w-20 text-center cursor-pointer py-1 px-2 bg-gray-button rounded-xl text-xs font-semibold'>
+				className=' w-20 text-center cursor-pointer py-1 px-2 bg-gray-button dark:bg-black self-end  rounded-xl text-xs font-semibold'>
 				Ver más
 			</a>
 		</div>
