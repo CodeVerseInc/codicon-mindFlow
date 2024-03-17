@@ -1,3 +1,4 @@
+'use client'
 import { Formik, Form, FormikHelpers } from 'formik'
 import { Input } from '@/components'
 import * as yup from 'yup'
