@@ -58,7 +58,7 @@ export const SideBar = () => {
 
 	return (
 		<>
-			<nav className='fixed top-0 z-50 w-full md:w-80 bg-white shadow-lg md:shadow-none dark:bg-black '>
+			<nav className='fixed top-0 z-50 w-full md:w-80 bg-white shadow-lg md:shadow-none dark:bg-bg-dark '>
 				<div className='px-3 py-3 lg:px-5 lg:pl-3'>
 					<div className='flex items-center justify-between'>
 						<div className='flex items-center justify-start rtl:justify-end'>
@@ -86,7 +86,7 @@ export const SideBar = () => {
 			<aside
 				className={`[grid-area:aside] fixed top-0 left-0 z-40 w-80 h-screen pt-5 2xl:pt-20 transition-transform ${
 					isOpen ? 'translate-x-0' : '-translate-x-full'
-				} bg-white sm:translate-x-0 `}>
+				} bg-white dark:bg-bg-dark sm:translate-x-0 `}>
 				<div className='mt-32 md:mt-12'>
 					{session?.user ? (
 						<div className='flex flex-col gap-4 md:flex-row items-center justify-between px-5'>
