@@ -6,6 +6,7 @@ interface InputProps {
 	placeholder: string
 	id: string
 	name: string // Agregado el atributo name
+	type: string
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -20,7 +21,7 @@ export const Input: React.FC<InputProps> = ({
 		<div className='mb-5'>
 			<label
 				htmlFor={props.id}
-				className='block mb-2 text-sm font-medium text-gray-900'>
+				className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'>
 				{label}
 			</label>
 			<input

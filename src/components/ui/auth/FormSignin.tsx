@@ -23,12 +23,32 @@ export const FormSignin = () => {
 			.required('Ingresa una contraseña')
 	})
 
-	const onSubmit = (
+	const onSubmit = async (
 		values: Values,
-		{ setSubmitting }: FormikHelpers<Values>
+		{ setSubmitting, setErrors }: FormikHelpers<Values>
 	) => {
-		console.log(values)
-		alert(JSON.stringify(values, null, 2))
+		try {
+			const response = await fetch('http://tu-api-django.com/register/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(values)
+			})
+
+			if (response.ok) {
+				// Registro exitoso, podrías redirigir al usuario a otra página
+				window.location.href = '/login' // Cambia '/login' por la ruta de tu página de inicio de sesión
+			} else {
+				// Registro fallido, muestra un mensaje de error
+				const data = await response.json()
+				if (data && data.error) {
+					setErrors({ username: data.error }) // Puedes manejar el mensaje de error específico según tu API
+				}
+			}
+		} catch (error) {
+			console.error('Error al registrar usuario:', error)
+		}
 		setSubmitting(false)
 	}
 
@@ -40,18 +60,21 @@ export const FormSignin = () => {
 			{(formikProps) => (
 				<Form className='mb-5'>
 					<Input
+						type='string'
 						label='Nombre de usuario'
 						name='username'
 						id='username'
 						placeholder='mike08'
 					/>
 					<Input
+						type='email'
 						name='email'
 						label='Email'
 						id='email'
 						placeholder='example@gmail.com'
 					/>
 					<Input
+						type='password'
 						label='Contraseña'
 						name='password'
 						id='password'

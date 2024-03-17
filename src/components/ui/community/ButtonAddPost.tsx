@@ -8,10 +8,6 @@ export const ButtonAddPost = () => {
 	const { data: session } = useSession()
 	const [openForm, setOpenForm] = useState(false)
 
-	const handleToggleForm = () => {
-		setOpenForm(!openForm)
-	}
-
 	const handleAddPostClick = () => {
 		setOpenForm(true)
 	}
