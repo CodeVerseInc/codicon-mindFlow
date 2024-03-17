@@ -56,7 +56,7 @@ export const FormAddPost = () => {
 							type='text'
 							name='title'
 							label='Escribe un título'
-							placeholder='100 días de NoFap'
+							placeholder='Titulo del post'
 							id='title'
 						/>
 						<div>
@@ -67,6 +67,7 @@ export const FormAddPost = () => {
 								id='description'
 								className='resize-none w-full focus-none border rounded-lg p-2.5 border-gray-300 bg-gray-50 text-gray-900 text-sm mt-2.5'
 								style={{ height: '80px' }}
+								placeholder='Escribe lo que piensas'
 							/>
 							<ErrorMessage
 								name='description'
