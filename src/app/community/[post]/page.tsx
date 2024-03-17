@@ -3,17 +3,15 @@ import { usePathname } from 'next/navigation'
 import { Data } from './Data'
 
 function PostPage() {
-  const path = usePathname() //comunnity/{$user}
-  const segments = path.split('/')
-  const postId = segments[segments.length - 1]
+	const path = usePathname() //comunnity/{$user}
+	const segments = path.split('/')
+	const postId = segments[segments.length - 1]
 
-  console.log(postId)
-
-  return (
-    <div>
-      <Data user={postId} />
-    </div>
-  )
+	return (
+		<div>
+			<Data user={postId} />
+		</div>
+	)
 }
 
 export default PostPage
