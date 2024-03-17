@@ -1,52 +1,54 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { signOut, useSession } from 'next-auth/react'
+import { DarkModeToggle } from '../theme/DarkMode'
 import {
 	IconBooks,
 	IconFolder,
 	IconHome,
 	IconLogout,
 	IconMenu2,
-	IconMoon,
 	IconPlant2,
 	IconUser,
 	IconUsers
 } from '@tabler/icons-react'
-import Link from 'next/link'
-import { signOut, useSession } from 'next-auth/react'
-import { DarkModeToggle } from '../theme/DarkMode'
+
+import { usePathname } from 'next/navigation'
 
 const ROUTES = [
 	{
 		name: 'Inicio',
-		icon: <IconHome stroke={2} className='text-color-icon' />,
+		icon: <IconHome stroke={2} className='text-color-icon dark:text-white' />,
 		route: '/'
 	},
 	{
 		name: 'Meditacion',
-		icon: <IconPlant2 stroke={2} className='text-color-icon' />,
-		route: '../meditation'
+		icon: <IconPlant2 stroke={2} className='text-color-icon dark:text-white' />,
+		route: '/meditation'
 	},
 	{
 		name: 'Comunidad',
-		icon: <IconUsers stroke={2} className='text-color-icon' />,
-		route: '../community'
+		icon: <IconUsers stroke={2} className='text-color-icon dark:text-white' />,
+		route: '/community'
 	},
 	{
 		name: 'Recursos',
-		icon: <IconFolder stroke={2} className='text-color-icon' />,
-		route: '../recurses'
+		icon: <IconFolder stroke={2} className='text-color-icon dark:text-white' />,
+		route: '/recurses'
 	},
 	{
 		name: 'Libreria',
-		icon: <IconBooks stroke={2} className='text-color-icon' />,
-		route: '../library'
+		icon: <IconBooks stroke={2} className='text-color-icon dark:text-white' />,
+		route: '/library'
 	}
 ]
 
 export const SideBar = () => {
 	const { data: session } = useSession()
 	const [isOpen, setIsOpen] = useState(false)
+	const pathname = usePathname()
 
 	const toggleMenu = () => {
 		setIsOpen(!isOpen)
@@ -142,7 +144,14 @@ export const SideBar = () => {
 							{ROUTES.map((route) => (
 								<li
 									key={route.name}
-									className='flex items-center justify-start gap-6 mb-5'>
+									className={` ${
+										pathname === route.route
+											? 'bg-gradient-to-r from-color-box to-color-box-secundary rounded-lg'
+											: ''
+									} flex items-center justify-start gap-6 mb-5 bg-gradient-to-r p-5`}
+									onClick={closeMenu}>
+									{' '}
+									{/* Cierra el menú al hacer clic en una opción */}
 									{route.icon}
 									<Link href={route.route} className='font-medium'>
 										{route.name}
