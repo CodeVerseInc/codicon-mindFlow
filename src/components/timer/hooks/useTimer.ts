@@ -16,7 +16,7 @@ const useTimer = (
 } => {
   const [timer, setTimer] = useState<Timer>({ min: 0, sec: 0 })
   const [isRunning, setIsRunning] = useState<boolean>(false)
-  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null)
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null) // Declaración de intervalId aquí
 
   useEffect(() => {
     const assignTimer = () => {
@@ -43,12 +43,15 @@ const useTimer = (
 
     assignTimer()
 
+    // Clean-up function
     return () => clearInterval(intervalId!)
-  }, [mood])
+  }, [mood, intervalId]) // Agregué intervalId como una dependencia aquí
 
   useEffect(() => {
+    let id: NodeJS.Timeout
+
     if (isRunning) {
-      const id = setInterval(() => {
+      id = setInterval(() => {
         setTimer((prevTimer) => {
           if (prevTimer.min === 0 && prevTimer.sec === 0) {
             clearInterval(id)
@@ -61,13 +64,11 @@ const useTimer = (
           return { min: newMin, sec: newSec }
         })
       }, 1000)
-      setIntervalId(id)
-    } else {
-      clearInterval(intervalId!)
-      setIntervalId(null)
+      setIntervalId(id) // Actualicé el intervalId aquí
     }
 
-    return () => clearInterval(intervalId!)
+    // Clean-up function
+    return () => clearInterval(id)
   }, [isRunning])
 
   const startTimer = (): void => {
@@ -76,7 +77,6 @@ const useTimer = (
 
   const stopTimer = (): void => {
     setIsRunning(false)
-    console.log('uwu')
   }
 
   const resetTimer = (): void => {

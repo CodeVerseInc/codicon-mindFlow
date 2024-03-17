@@ -1,3 +1,4 @@
+'use client'
 import { Timer } from '@/components/timer'
 import { Calendar } from '@/components/timer/components/Calendar'
 

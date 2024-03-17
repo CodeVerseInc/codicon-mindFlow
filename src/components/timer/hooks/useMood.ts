@@ -4,13 +4,11 @@ export const useMood = (): {
   mood: string
   handleSetMood: (mood: string) => void
 } => {
-  const [mood, setMood] = useState('')
+  const [mood, setMood] = useState('sleep')
 
   const handleSetMood = (mood: string) => {
     setMood(mood)
   }
-
-  console.log(mood)
 
   return { mood, handleSetMood }
 }
