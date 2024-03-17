@@ -1,5 +1,6 @@
 import { signIn } from 'next-auth/react'
 import { FC } from 'react'
+
 interface LoginSignInGoogleProps {
 	children: React.ReactNode
 }
