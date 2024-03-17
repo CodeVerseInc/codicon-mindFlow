@@ -6,6 +6,7 @@ interface InputProps {
 	placeholder: string
 	id: string
 	name: string // Agregado el atributo name
+	type: string
 }
 
 export const Input: React.FC<InputProps> = ({
