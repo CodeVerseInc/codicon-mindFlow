@@ -17,6 +17,7 @@ const config: Config = {
 				'color-box-secundary': '#509755',
 				'color-separator': '#AEAEAE',
 				'color-icon': '#5F5F5F',
+				'gray-button': '#D9D9D9',
 				'tom-thumb': {
 					'50': '#f5f9f4', // Lightest - used for backgrounds, borders etc.
 					'100': '#e5f3e6', // Lighter
