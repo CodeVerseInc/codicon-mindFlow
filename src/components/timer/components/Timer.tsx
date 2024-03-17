@@ -27,11 +27,6 @@ export const Timer = () => {
     .toString()
     .padStart(2, '0')}`
 
-  console.log(mood)
-  console.log(timer)
-  console.log(isRunning)
-  console.log(audioRef)
-
   return (
     <div className='flex flex-col gap-4 m-4 items-center'>
       <div className='rounded-full min-w-[250px] min-h-[250px] bg-gradient-to-r from-color-box to-color-box-secundary flex justify-center items-center'>
