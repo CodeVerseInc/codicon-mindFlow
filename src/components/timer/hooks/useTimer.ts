@@ -76,6 +76,7 @@ const useTimer = (
 
   const stopTimer = (): void => {
     setIsRunning(false)
+    console.log('uwu')
   }
 
   const resetTimer = (): void => {

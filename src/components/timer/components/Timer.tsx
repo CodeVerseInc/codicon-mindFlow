@@ -17,10 +17,12 @@ import DissapointFace from '../../../../public/assets/icons/twemoji_disappointed
 import GrinningFace from '../../../../public/assets/icons/twemoji_grinning-face-with-smiling-eyes.svg'
 import KissingFace from '../../../../public/assets/icons/twemoji_kissing-face-with-smiling-eyes.svg'
 import SleepyFace from '../../../../public/assets/icons/twemoji_sleepy-face.svg'
+import useMusicPlayer from '../hooks/useMusicPlayer'
 
 export const Timer = () => {
   const { mood, handleSetMood } = useMood()
   const { timer, isRunning, startTimer, stopTimer, resetTimer } = useTimer(mood)
+  const { play, stop, audioRef } = useMusicPlayer(mood)
   const formattedTime = `${timer.min.toString().padStart(2, '0')}:${timer.sec
     .toString()
     .padStart(2, '0')}`
@@ -33,27 +35,35 @@ export const Timer = () => {
       <div className='flex justify-center items-center gap-4'>
         <div
           className='bg-color-bg-circle p-2 rounded-full hover:bg-gradient-to-r from-color-box to-color-box-secundary'
-          onClick={startTimer}
+          onClick={() => {
+            Promise.all([startTimer(), play()])
+          }}
           aria-disabled={isRunning}
         >
           <IconPlayerPlay
             stroke={2}
             size={40}
             className='text-color-icon-meditation'
-            onClick={startTimer}
+            onClick={() => {
+              Promise.all([startTimer(), play()])
+            }}
             aria-disabled={isRunning}
           />
         </div>
         <div
           className='bg-color-bg-circle p-2 rounded-full'
-          onClick={stopTimer}
+          onClick={() => {
+            Promise.all([stopTimer(), stop()])
+          }}
           aria-disabled={!isRunning}
         >
           <IconPlayerPause
             stroke={2}
             size={40}
             className='text-color-icon-meditation'
-            onClick={stopTimer}
+            onClick={() => {
+              Promise.all([stopTimer(), stop()])
+            }}
             aria-disabled={!isRunning}
           />
         </div>
@@ -107,6 +117,7 @@ export const Timer = () => {
           <span className='font-semibold'>Cansado</span>
         </div>
       </div>
+      <audio ref={audioRef} />
     </div>
   )
 }
