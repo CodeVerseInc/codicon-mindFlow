@@ -1,4 +1,5 @@
 import { CardBookBetter, CardRecurses } from '@/components'
+import { Timer } from '@/components/timer'
 import { IconCornerDownRight } from '@tabler/icons-react'
 import Link from 'next/link'
 
@@ -41,7 +42,7 @@ export default function Home() {
 	return (
 		<section className='flex justify-between flex-col md:flex-row'>
 			<article className='w-full h-screen'>
-				<p>aqui el timer</p>
+				<Timer />
 				<article>aqui los post</article>
 			</article>
 			<article className='bg-white dark:bg-bg-dark w-full md:w-[750px] h-screen p-5'>
