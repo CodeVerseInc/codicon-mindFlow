@@ -1,5 +1,5 @@
 'use client'
-import { Formik, Form, FormikHelpers } from 'formik'
+import { Formik, Form, FormikHelpers, Field, ErrorMessage } from 'formik'
 import { Input } from '@/components'
 import * as yup from 'yup'
 
@@ -9,15 +9,38 @@ interface Values {
 
 export const FormAddPost = () => {
 	const validationSchema = yup.object({
-		title: yup.string().required('Por favor ingresa un titulo')
+		title: yup.string().required('Por favor ingresa un titulo'),
+		description: yup
+			.string()
+			.min(20, 'La descripción debe tener al menos 20 caracteres')
+			.max(255, 'Maximo 250 caracteres')
+			.required('Por favor ingresa una descripción')
 	})
 
-	const onSubmit = (
+	const onSubmit = async (
 		values: Values,
 		{ setSubmitting }: FormikHelpers<Values>
 	) => {
-		console.log(values)
-		alert(JSON.stringify(values, null, 2))
+		try {
+			const response = await fetch('http://tu-backend-django.com/api/posts/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(values)
+			})
+
+			if (response.ok) {
+				alert('Publicación exitosa') // O maneja el resultado de la publicación de alguna otra manera
+			} else {
+				const data = await response.json()
+				alert(data.error || 'Error al publicar') // Muestra un mensaje de error si hay problemas en el servidor
+			}
+		} catch (error) {
+			console.error('Error al publicar:', error)
+			alert('Error al publicar') // Muestra un mensaje de error genérico en caso de errores de red u otros problemas
+		}
+
 		setSubmitting(false)
 	}
 
@@ -28,14 +51,29 @@ export const FormAddPost = () => {
 				validationSchema={validationSchema} // Aquí pasamos el esquema de validación
 				onSubmit={onSubmit}>
 				{(formikProps) => (
-					<Form>
+					<Form className='flex flex-col justify-between '>
 						<Input
-							type='string'
+							type='text'
 							name='title'
 							label='Escribe un título'
 							placeholder='100 días de NoFap'
 							id='title'
 						/>
+						<div>
+							<label htmlFor='description'>Descripción:</label>
+							<Field
+								as='textarea'
+								name='description'
+								id='description'
+								className='resize-none w-full focus-none border rounded-lg p-2.5 border-gray-300 bg-gray-50 text-gray-900 text-sm mt-2.5'
+								style={{ height: '80px' }}
+							/>
+							<ErrorMessage
+								name='description'
+								component='span'
+								className='block mt-1 text-sm text-red-600'
+							/>
+						</div>
 						<button
 							type='submit'
 							disabled={formikProps.isSubmitting}
