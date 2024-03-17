@@ -37,12 +37,12 @@ const ROUTES = [
 		name: 'Recursos',
 		icon: <IconFolder stroke={2} className='text-color-icon dark:text-white' />,
 		route: '/recurses'
-	},
-	{
-		name: 'Libreria',
-		icon: <IconBooks stroke={2} className='text-color-icon dark:text-white' />,
-		route: '/library'
 	}
+	// {
+	// 	name: 'Libreria',
+	// 	icon: <IconBooks stroke={2} className='text-color-icon dark:text-white' />,
+	// 	route: '/library'
+	// }
 ]
 
 export const SideBar = () => {
