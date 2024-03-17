@@ -2,6 +2,7 @@ import { CardBookBetter, CardRecurses } from '@/components'
 import { Timer } from '@/components/timer'
 import { IconCornerDownRight } from '@tabler/icons-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const personalDevelopmentResources = [
 	{
@@ -38,12 +39,54 @@ const books = [
 	}
 ]
 
+const posts = [
+	{
+		username: 'Angel Cruz',
+		description: 'Desarrollador FrontEnd',
+		profilePicture: 'https://avatars.githubusercontent.com/u/136207924?v=4'
+	},
+	{
+		username: 'Ariff Martinez',
+		description: 'Desarrollador FrontEnd.',
+		profilePicture: 'https://avatars.githubusercontent.com/u/141645615?v=4'
+	},
+	{
+		username: 'Lizandro',
+		description: 'Desarrollador Backend.',
+		profilePicture: 'https://avatars.githubusercontent.com/u/139398896?v=4'
+	}
+]
+
 export default function Home() {
 	return (
 		<section className='flex justify-between flex-col md:flex-row'>
-			<article className='w-full h-screen'>
+			<article className='w-full '>
 				<Timer />
-				<article>aqui los post</article>
+				<article className='p-5'>
+					<h4 className='text-xl font-bold'>Ultimos post</h4>
+
+					<div className='flex flex-col md:flex-row mt-5 justify-center items-center gap-x-5'>
+						{posts.map((post) => (
+							<div
+								key={post.username}
+								className='` bg-color-bg-circle   dark:bg-bg-card-dark mb-3 dark:bg-opacity-30 p-2 rounded-lg flex flex-col items-center justify-center'>
+								<div className='flex gap-x-5 flex-col items-center mt-5 '>
+									<Image
+										src={post.profilePicture}
+										width={50}
+										height={50}
+										className='rounded-full'
+										alt={post.username}
+									/>
+									<p className='font-bold text-xl'>{post.username}</p>
+								</div>
+								<div>
+									<p>{post.description}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</article>
 			</article>
 			<article className='bg-white dark:bg-bg-dark w-full md:w-[750px] h-screen p-5'>
 				<div className='flex justify-between items-center'>

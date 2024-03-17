@@ -5,7 +5,8 @@ const nextConfig = {
 			'res.cloudinary.com',
 			'lh3.googleusercontent.com',
 			'via.placeholder.com',
-			'robohash.org'
+			'robohash.org',
+			'avatars.githubusercontent.com'
 		]
 	}
 }
