@@ -153,9 +153,11 @@ export const SideBar = () => {
 					</div>
 				</div>
 				{/* Bar bottom */}
-				<div className='h-16 bg-gradient-to-b from-tom-thumb-500 to-tom-thumb-600 absolute bottom-0 w-full flex items-center justify-center gap-6'>
+				<div className='h-16 bg-gradient-to-b from-tom-thumb-500 to-tom-thumb-600 absolute bottom-0 w-full flex flex-row-reverse items-center justify-evenly gap-6'>
 					{session?.user ? (
 						<button
+							className=''
+							title='Cerrar sesión'
 							onClick={async () => {
 								await signOut({
 									callbackUrl: '/'
@@ -164,14 +166,7 @@ export const SideBar = () => {
 							<IconLogout stroke={2} className='text-white cursor-pointer' />
 						</button>
 					) : null}
-
-					<Link href='/'>
-						{' '}
-						<IconUser stroke={2} className='text-white cursor-pointer' />
-					</Link>
-					<div>
-						<DarkModeToggle />
-					</div>
+					<DarkModeToggle />
 				</div>
 			</aside>
 			{isOpen && (

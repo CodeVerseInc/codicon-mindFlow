@@ -27,13 +27,8 @@ export const DarkModeToggle = () => {
 
 	// Aplica las clases de Tailwind CSS basadas en el estado del modo oscuro
 	return (
-		<div>
-			<button
-				onClick={handleChangeTheme}
-				className={`absolute top-4 right-4 p-2 rounded-md `}>
-				<IconMoon stroke={2} className='text-white cursor-pointer' />
-			</button>
-			{/* Resto de tu aplicación aquí */}
-		</div>
+		<button onClick={handleChangeTheme}>
+			<IconMoon stroke={2} className='text-white cursor-pointer' />
+		</button>
 	)
 }
