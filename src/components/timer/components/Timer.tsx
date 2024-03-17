@@ -17,10 +17,12 @@ import DissapointFace from '../../../../public/assets/icons/twemoji_disappointed
 import GrinningFace from '../../../../public/assets/icons/twemoji_grinning-face-with-smiling-eyes.svg'
 import KissingFace from '../../../../public/assets/icons/twemoji_kissing-face-with-smiling-eyes.svg'
 import SleepyFace from '../../../../public/assets/icons/twemoji_sleepy-face.svg'
+import useMusicPlayer from '../hooks/useMusicPlayer'
 
 export const Timer = () => {
 	const { mood, handleSetMood } = useMood()
 	const { timer, isRunning, startTimer, stopTimer, resetTimer } = useTimer(mood)
+	const { play, stop, audioRef } = useMusicPlayer(mood)
 	const formattedTime = `${timer.min.toString().padStart(2, '0')}:${timer.sec
 		.toString()
 		.padStart(2, '0')}`
@@ -32,31 +34,39 @@ export const Timer = () => {
 			</div>
 			<div className='flex justify-center items-center gap-4'>
 				<div
-					className='bg-color-bg-circle p-2 rounded-full hover:bg-gradient-to-r from-color-box to-color-box-secundary dark:bg-bg-card-dark dark:bg-opacity-30 '
-					onClick={startTimer}
+					className='bg-color-bg-circle p-2 rounded-full hover:bg-gradient-to-r from-color-box to-color-box-secundary  dark:bg-bg-card-dark dark:bg-opacity-30 cursor-pointer'
+					onClick={() => {
+						Promise.all([startTimer(), play()])
+					}}
 					aria-disabled={isRunning}>
 					<IconPlayerPlay
 						stroke={2}
 						size={40}
 						className='text-color-icon-meditation'
-						onClick={startTimer}
+						onClick={() => {
+							Promise.all([startTimer(), play()])
+						}}
 						aria-disabled={isRunning}
 					/>
 				</div>
 				<div
-					className='bg-color-bg-circle p-2 rounded-full dark:bg-bg-card-dark dark:bg-opacity-30'
-					onClick={stopTimer}
+					className='bg-color-bg-circle p-2 rounded-full  dark:bg-bg-card-dark dark:bg-opacity-30 cursor-pointer'
+					onClick={() => {
+						Promise.all([stopTimer(), stop()])
+					}}
 					aria-disabled={!isRunning}>
 					<IconPlayerPause
 						stroke={2}
 						size={40}
 						className='text-color-icon-meditation'
-						onClick={stopTimer}
+						onClick={() => {
+							Promise.all([stopTimer(), stop()])
+						}}
 						aria-disabled={!isRunning}
 					/>
 				</div>
 				<div
-					className='bg-color-bg-circle p-2 rounded-full dark:bg-bg-card-dark dark:bg-opacity-30 '
+					className='bg-color-bg-circle p-2 rounded-full  dark:bg-bg-card-dark dark:bg-opacity-30 cursor-pointer '
 					onClick={resetTimer}>
 					<IconRotateClockwise
 						stroke={2}
@@ -67,38 +77,39 @@ export const Timer = () => {
 					/>
 				</div>
 			</div>
-			<div className='flex mx-4 flex-wrap gap-6 items-center justify-center '>
+			<div className='flex mx-4 flex-wrap gap-6 items-center justify-center'>
 				<div
-					className='bg-color-bg-circle min-w-[85px] min-h-[150px] flex flex-col justify-center items-center gap-8 rounded-full dark:bg-bg-card-dark dark:bg-opacity-30  '
+					className='bg-color-bg-circle min-w-[85px] min-h-[150px] flex flex-col justify-center items-center gap-5 rounded-full  dark:bg-bg-card-dark dark:bg-opacity-30 cursor-pointer'
 					onClick={() => handleSetMood('all')}>
 					<Image src={FireTw} alt='fuego' width={36} height={36} />
 					<span className='font-semibold'>Todos</span>
 				</div>
 				<div
-					className='bg-color-bg-circle min-w-[85px] min-h-[150px] flex flex-col justify-center items-center gap-8 rounded-full dark:bg-bg-card-dark dark:bg-opacity-30 '
+					className='bg-color-bg-circle min-w-[85px] min-h-[150px] flex flex-col justify-center items-center gap-5 rounded-full dark:bg-bg-card-dark dark:bg-opacity-30 cursor-pointer'
 					onClick={() => handleSetMood('sleep')}>
 					<Image src={SleepyFace} alt='fuego' width={36} height={36} />
 					<span className='font-semibold'>Dormir</span>
 				</div>
 				<div
-					className='bg-color-bg-circle min-w-[85px] min-h-[150px] flex flex-col justify-center items-center gap-8 rounded-full dark:bg-bg-card-dark dark:bg-opacity-30 '
+					className='bg-color-bg-circle min-w-[85px] min-h-[150px] flex flex-col justify-center items-center gap-5 rounded-full dark:bg-bg-card-dark dark:bg-opacity-30 cursor-pointer'
 					onClick={() => handleSetMood('relax')}>
 					<Image src={KissingFace} alt='fuego' width={36} height={36} />
 					<span className='font-semibold'>Relajarse</span>
 				</div>
 				<div
-					className='bg-color-bg-circle min-w-[85px] min-h-[150px] flex flex-col justify-center items-center gap-8 rounded-full dark:bg-bg-card-dark dark:bg-opacity-30 '
+					className='bg-color-bg-circle min-w-[85px] min-h-[150px] flex flex-col justify-center items-center gap-5 rounded-full  dark:bg-bg-card-dark dark:bg-opacity-30 cursor-pointer'
 					onClick={() => handleSetMood('happy')}>
 					<Image src={GrinningFace} alt='fuego' width={36} height={36} />
 					<span className='font-semibold'>Feliz</span>
 				</div>
 				<div
-					className='bg-color-bg-circle min-w-[85px] min-h-[150px] flex flex-col justify-center items-center gap-8 rounded-full dark:bg-bg-card-dark dark:bg-opacity-30 '
+					className='bg-color-bg-circle min-w-[85px] min-h-[150px] flex flex-col justify-center items-center gap-5 rounded-full  dark:bg-bg-card-dark dark:bg-opacity-30 cursor-pointer'
 					onClick={() => handleSetMood('tired')}>
 					<Image src={DissapointFace} alt='fuego' width={36} height={36} />
 					<span className='font-semibold'>Cansado</span>
 				</div>
 			</div>
+			<audio ref={audioRef} />
 		</div>
 	)
 }
