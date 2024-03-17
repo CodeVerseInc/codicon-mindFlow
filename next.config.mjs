@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: [
+		remotePatterns: [
 			'res.cloudinary.com',
 			'lh3.googleusercontent.com',
 			'via.placeholder.com',
