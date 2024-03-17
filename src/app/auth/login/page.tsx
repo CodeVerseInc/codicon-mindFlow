@@ -28,6 +28,7 @@ function Login() {
 					<FormLogin />
 					{/* Login with Google */}
 					<LoginSignInGoogle>Iniciar sesion con Google</LoginSignInGoogle>
+
 					<div className='text-center mt-10'>
 						<Link href='signin'>
 							Aun no tienes cuenta?{' '}

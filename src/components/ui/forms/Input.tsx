@@ -1,35 +1,41 @@
+'use client'
+import { useField, ErrorMessage } from 'formik'
+
 interface InputProps {
 	label: string
-	type: string
 	placeholder: string
-	required: boolean
 	id: string
+	name: string // Agregado el atributo name
 }
 
-export const Input = ({
+export const Input: React.FC<InputProps> = ({
 	label,
-	type,
-
 	placeholder,
-	required,
-	id
-}: InputProps) => {
+	name,
+	...props
+}) => {
+	const [field, meta] = useField(name)
+
 	return (
-		<>
-			<div className='mb-5'>
-				<label
-					htmlFor={type}
-					className='block mb-2 text-sm font-medium text-gray-900'>
-					{label}
-				</label>
-				<input
-					className='bg-gray-50 border h-14 border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5'
-					id={id}
-					type={type}
-					placeholder={placeholder}
-					required={required}
+		<div className='mb-5'>
+			<label
+				htmlFor={props.id}
+				className='block mb-2 text-sm font-medium text-gray-900'>
+				{label}
+			</label>
+			<input
+				{...field}
+				{...props}
+				placeholder={placeholder}
+				className='bg-gray-50 border h-14 border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5'
+			/>
+			{meta.touched && meta.error ? (
+				<ErrorMessage
+					name={props.id}
+					component='span'
+					className='block mt-1 text-sm text-red-600'
 				/>
-			</div>
-		</>
+			) : null}
+		</div>
 	)
 }
