@@ -66,7 +66,7 @@ export const SideBar = () => {
 						<div className='flex items-center justify-start rtl:justify-end'>
 							<button
 								onClick={toggleMenu}
-								className='inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'>
+								className='inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden focus:ring-2 focus:ring-gray-200 dark:text-white'>
 								<IconMenu2 size={24} />
 							</button>
 							<Link href='/' className='flex ms-2 md:me-24'>
@@ -131,7 +131,8 @@ export const SideBar = () => {
 							/>
 							<Link
 								href='/auth/login'
-								className='text-center text-tom-thumb-500 font-semibold'>
+								className='text-center text-tom-thumb-500 font-semibold'
+								onClick={closeMenu}>
 								Iniciar sesión
 							</Link>
 						</div>

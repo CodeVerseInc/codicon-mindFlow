@@ -1,5 +1,5 @@
 'use client'
-import { IconMoon } from '@tabler/icons-react'
+import { IconMoon, IconSun } from '@tabler/icons-react'
 import { useState, useEffect } from 'react'
 
 export const DarkModeToggle = () => {
@@ -28,7 +28,11 @@ export const DarkModeToggle = () => {
 	// Aplica las clases de Tailwind CSS basadas en el estado del modo oscuro
 	return (
 		<button onClick={handleChangeTheme}>
-			<IconMoon stroke={2} className='text-white cursor-pointer' />
+			{theme === 'light' ? (
+				<IconMoon stroke={2} className='text-white cursor-pointer' />
+			) : (
+				<IconSun stroke={2} className='text-white cursor-pointer' />
+			)}
 		</button>
 	)
 }

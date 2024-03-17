@@ -12,7 +12,7 @@ export const CardBookBetter = ({
 	description
 }: CardBookBetterProps) => {
 	return (
-		<div className='flex items-center gap-3 rounded-lg bg-tom-thumb-500 p-5 mb-3'>
+		<div className='flex items-center gap-3 rounded-lg bg-gradient-to-b from-tom-thumb-500 to-tom-thumb-600 p-5 mb-3'>
 			<Image
 				src={image}
 				alt=''
