@@ -34,7 +34,7 @@ export const ButtonAddPost = () => {
 
 			{openForm && (
 				<div className='fixed top-0 right-0 left-0  w-full h-full  bg-black bg-opacity-50'>
-					<div className='w-96 h-96 bg-white rounded-lg p-5 relative mt-56 ml-16 md:ml-[800px] md:mt-48'>
+					<div className='w-96 h-96 bg-white rounded-lg p-5 relative mt-56 ml-16 md:ml-[600px] md:mt-20 2xl:ml-[800px] 2xl:mt-48'>
 						<div className='flex justify-between'>
 							<h2 className='text-center font-semibold text-2xl text-tom-thum-500'>
 								Escribe tu historia
