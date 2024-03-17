@@ -19,7 +19,8 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='es'>
-			<body className={`bg-bg-gray h-screen`}>
+			<body
+				className={`bg-bg-gray h-screen dark:bg-gradient-to-t to-bg-green-dark from-bg-dark via-bg-dark  dark:text-white bg-no-repeat bg-center bg-contain `}>
 				<Session>
 					<div id='app' className='h-screen relative'>
 						{/* A component with conditional logic is used to prevent the entire app from using "use client" */}

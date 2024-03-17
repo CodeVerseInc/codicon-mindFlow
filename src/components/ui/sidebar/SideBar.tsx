@@ -14,6 +14,7 @@ import {
 } from '@tabler/icons-react'
 import Link from 'next/link'
 import { signOut, useSession } from 'next-auth/react'
+import { DarkModeToggle } from '../theme/DarkMode'
 
 const ROUTES = [
 	{
@@ -57,7 +58,7 @@ export const SideBar = () => {
 
 	return (
 		<>
-			<nav className='fixed top-0 z-50 w-full md:w-80 bg-white shadow-lg md:shadow-none  '>
+			<nav className='fixed top-0 z-50 w-full md:w-80 bg-white shadow-lg md:shadow-none dark:bg-bg-dark '>
 				<div className='px-3 py-3 lg:px-5 lg:pl-3'>
 					<div className='flex items-center justify-between'>
 						<div className='flex items-center justify-start rtl:justify-end'>
@@ -85,7 +86,7 @@ export const SideBar = () => {
 			<aside
 				className={`[grid-area:aside] fixed top-0 left-0 z-40 w-80 h-screen pt-5 2xl:pt-20 transition-transform ${
 					isOpen ? 'translate-x-0' : '-translate-x-full'
-				} bg-white sm:translate-x-0 `}>
+				} bg-white dark:bg-bg-dark sm:translate-x-0 `}>
 				<div className='mt-32 md:mt-12'>
 					{session?.user ? (
 						<div className='flex flex-col gap-4 md:flex-row items-center justify-between px-5'>
@@ -152,9 +153,11 @@ export const SideBar = () => {
 					</div>
 				</div>
 				{/* Bar bottom */}
-				<div className='h-16 bg-gradient-to-b from-tom-thumb-500 to-tom-thumb-600 absolute bottom-0 w-full flex items-center justify-center gap-6'>
+				<div className='h-16 bg-gradient-to-b from-tom-thumb-500 to-tom-thumb-600 absolute bottom-0 w-full flex flex-row-reverse items-center justify-evenly gap-6'>
 					{session?.user ? (
 						<button
+							className=''
+							title='Cerrar sesión'
 							onClick={async () => {
 								await signOut({
 									callbackUrl: '/'
@@ -163,14 +166,7 @@ export const SideBar = () => {
 							<IconLogout stroke={2} className='text-white cursor-pointer' />
 						</button>
 					) : null}
-
-					<Link href='/'>
-						{' '}
-						<IconUser stroke={2} className='text-white cursor-pointer' />
-					</Link>
-					<Link href='/'>
-						<IconMoon stroke={2} className='text-white cursor-pointer' />
-					</Link>
+					<DarkModeToggle />
 				</div>
 			</aside>
 			{isOpen && (
