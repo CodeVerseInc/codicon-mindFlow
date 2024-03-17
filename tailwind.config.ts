@@ -6,6 +6,7 @@ const config: Config = {
 		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}'
 	],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
@@ -18,6 +19,7 @@ const config: Config = {
 				'color-separator': '#AEAEAE',
 				'color-icon': '#5F5F5F',
 				'gray-button': '#D9D9D9',
+				'bg-dark': '#121212',
 				'tom-thumb': {
 					'50': '#f5f9f4', // Lightest - used for backgrounds, borders etc.
 					'100': '#e5f3e6', // Lighter

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { SideBar } from '@/components'
+import { SideBar, DarkModeToggle } from '@/components'
 // Provider whith context of session
 import { Session } from '@/context/SessionProvider'
 
@@ -19,9 +19,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='es'>
-			<body className={`bg-bg-gray h-screen`}>
+			<body
+				className={`bg-bg-gray h-screen dark:bg-gradient-to-b from-stone-600 to-zinc-900`}>
 				<Session>
 					<div id='app' className='h-screen relative'>
+						<DarkModeToggle />
 						{/* A component with conditional logic is used to prevent the entire app from using "use client" */}
 						<SideBar />
 						<main className='[grid-area:main] h-screen mt-32 md:mt-0'>

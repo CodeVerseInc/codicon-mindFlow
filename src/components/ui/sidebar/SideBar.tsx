@@ -14,6 +14,7 @@ import {
 } from '@tabler/icons-react'
 import Link from 'next/link'
 import { signOut, useSession } from 'next-auth/react'
+import { DarkModeToggle } from '../theme/DarkMode'
 
 const ROUTES = [
 	{
@@ -57,7 +58,7 @@ export const SideBar = () => {
 
 	return (
 		<>
-			<nav className='fixed top-0 z-50 w-full md:w-80 bg-white shadow-lg md:shadow-none  '>
+			<nav className='fixed top-0 z-50 w-full md:w-80 bg-white shadow-lg md:shadow-none dark:bg-black '>
 				<div className='px-3 py-3 lg:px-5 lg:pl-3'>
 					<div className='flex items-center justify-between'>
 						<div className='flex items-center justify-start rtl:justify-end'>
@@ -168,9 +169,9 @@ export const SideBar = () => {
 						{' '}
 						<IconUser stroke={2} className='text-white cursor-pointer' />
 					</Link>
-					<Link href='/'>
-						<IconMoon stroke={2} className='text-white cursor-pointer' />
-					</Link>
+					<div>
+						<DarkModeToggle />
+					</div>
 				</div>
 			</aside>
 			{isOpen && (
