@@ -4,7 +4,6 @@ const useMusicPlayer = (mood: string) => {
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
-    // Lógica para cargar la canción según el estado de ánimo
     let audioFile: string
 
     switch (mood) {
@@ -36,7 +35,18 @@ const useMusicPlayer = (mood: string) => {
 
   const play = () => {
     if (audioRef.current) {
-      audioRef.current.play() // Reproduce la canción al llamar a la función play
+      const playPromise = audioRef.current.play()
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then((_) => {
+            // Reproducción exitosa
+          })
+          .catch((error) => {
+            // Error al reproducir
+            console.error('Error al reproducir el audio:', error)
+          })
+      }
     }
   }
 
