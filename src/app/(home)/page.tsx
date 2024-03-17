@@ -47,7 +47,9 @@ export default function Home() {
 			</article>
 			<article className='bg-white dark:bg-bg-dark w-full md:w-[750px] h-screen p-5'>
 				<div className='flex justify-between items-center'>
-					<h2 className=' text-xl font-bold'>Aqui los libros mas destacados</h2>
+					<h2 className=' text-xl font-bold text-tom-thumb-500'>
+						Aqui los libros mas destacados
+					</h2>
 					<Link
 						href='library'
 						className='text-xs font-extralight flex items-center'>
@@ -67,7 +69,9 @@ export default function Home() {
 				</div>
 
 				<div className='flex justify-between items-center'>
-					<h2 className='text-xl font-bold'>Recursos destacados</h2>
+					<h2 className='text-xl font-bold text-tom-thumb-500'>
+						Recursos destacados
+					</h2>
 					<Link
 						href='recurses'
 						className='text-xs font-extralight flex items-center'>
