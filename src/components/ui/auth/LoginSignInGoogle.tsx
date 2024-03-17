@@ -8,7 +8,7 @@ interface LoginSignInGoogleProps {
 export const LoginSignInGoogle: FC<LoginSignInGoogleProps> = ({ children }) => {
 	// Function to login with Google
 	const loginWithGoogle = () => {
-		signIn('google', { callbackUrl: 'https://mindflow-nine.vercel.app/' })
+		signIn('google', { callbackUrl: process.env.NEXTAUTH_URL })
 	}
 
 	return (
