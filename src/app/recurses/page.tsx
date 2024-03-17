@@ -79,10 +79,10 @@ const data = [
 
 export default function Recurses() {
 	return (
-		<main className='m-4  flex flex-wrap justify-center gap-4 text-black'>
+		<main className='m-4  flex flex-wrap justify-center gap-4 text-black '>
 			{data.map((item) => (
 				<article
-					className='bg-white w-[190px] h-[260px] md:min-w-[220px] md:min-h-[220px]  p-2 flex flex-col rounded-lg gap-2'
+					className='bg-white w-[190px] h-[260px] md:min-w-[220px] md:min-h-[220px]  p-2 flex flex-col rounded-lg gap-2  dark:bg-bg-card-dark dark:bg-opacity-30 dark:text-white'
 					key={item.titulo}>
 					<div className='flex'>
 						<div className='w-1/3'>
