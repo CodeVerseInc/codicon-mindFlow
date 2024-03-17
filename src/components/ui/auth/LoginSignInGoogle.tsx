@@ -14,7 +14,7 @@ export const LoginSignInGoogle: FC<LoginSignInGoogleProps> = ({ children }) => {
 	return (
 		<button
 			onClick={loginWithGoogle}
-			className='flex gap-x-2 h-14 items-center shadow-md w-full justify-center rounded-lg'>
+			className='flex gap-x-2 h-14 items-center shadow-md w-full justify-center rounded-lg dark:bg-white dark:text-black'>
 			<svg
 				width='21'
 				height='22'
