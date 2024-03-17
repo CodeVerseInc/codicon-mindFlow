@@ -1,3 +1,14 @@
+import { Timer } from '@/components/timer'
+import { Mood } from '@/components/timer/components/Mood'
+
 export default function Meditation() {
-	return <h1 className='text-tom-thumb-500'>Seleciona tu meditacion</h1>
+  return (
+    <main className='flex flex-col justify-center items-center'>
+      <Timer />
+      <Mood />
+      <div></div>
+      <div></div>
+      <div></div>
+    </main>
+  )
 }
